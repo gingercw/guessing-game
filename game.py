@@ -6,14 +6,12 @@ guess = int(input(f"Nice to meet you, {player}! I'm thinking of a number between
 guess_count = 1
 
 while True:
-  if guess > number:
-      guess = int(input("The guess is too high. Try again: "))
+  if guess < 1 or guess > 100:
+      guess = int(input("Whomp whomp. That guess is not between 1-100. Try again: "))
       guess_count += 1
-      print(guess_count)
-  elif guess < number:
-      guess = int(input("The guess is too low. Try again: "))
+  elif guess != number and guess >= 1 and guess <= 100:
+      guess = int(input("The guess is too high. Try again: ")) if guess > number else int(input("The guess is too low. Try again: "))
       guess_count += 1
-      print(guess_count)
   else:
     print(f"Great job, {player}! You guessed the number in only {guess_count} tries.")
     exit()
